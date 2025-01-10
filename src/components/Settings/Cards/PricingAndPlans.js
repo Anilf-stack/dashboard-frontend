@@ -13,35 +13,48 @@ const PlansAndPricing = () => {
   return (
     <Box
       sx={{
-        p: 4,
-        maxWidth: "800px",
+        p: 3,
+        maxWidth: "900px",
         margin: "auto",
+        fontFamily: ' sans-serif',
+        color: "#344767",
+        
       }}
     >
+      {/* Title */}
+      <Typography color="#344767" sx={{ fontFamily: ' sans-serif', fontSize: '18px', fontWeight: "bold" }}>
+        Plans & Pricing
+      </Typography>
 
-      {/* Active Plan Details */}
+      {/* Layout Container */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "center",
-          mb: 4,
+          alignItems: "flex-start", // Align items to the top
+          marginTop: "20px",
         }}
       >
-        <Box>
+        {/* Active Plan Details */}
+        <Box
+          sx={{
+            flex: 1, // Allows this section to take up space
+            marginRight: "20px", // Adds gap between left and right sections
+          }}
+        >
           <Chip
             label="Active Plan - Classic, $50 / month"
             sx={{
               backgroundColor: "#FF5B5B",
               color: "#fff",
               fontWeight: "bold",
-              mb: 2,
+              mb: 2, // Adds gap below the Chip
             }}
           />
-          <Typography variant="body2" sx={{ mb: 1 }}>
+          <Typography variant="body2" sx={{ mb: 1 ,color: "#6c757d"  }}>
             Last Subscribed: <strong>07th September, 2022</strong>
           </Typography>
-          <Typography variant="body2">
+          <Typography variant="body2"  sx={{ color: "#6c757d"  }}>
             Expires on: <strong>08th November, 2022</strong>
           </Typography>
         </Box>
@@ -49,24 +62,38 @@ const PlansAndPricing = () => {
         {/* Pricing Card */}
         <Card
           sx={{
-            width: "300px",
+            width: "300px", // Fixed width for the card
             borderRadius: "10px",
             boxShadow: 2,
-            backgroundColor: "#F9F9F9",
+            flexShrink: 0, // Prevents the card from shrinking
           }}
         >
-          <CardContent>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Typography
               variant="subtitle2"
               sx={{
                 textAlign: "center",
                 fontWeight: "bold",
+                fontSize: "16px",
                 color: "#6c757d",
-                mb: 1,
+                backgroundColor: "#F9F9F9",
+                padding: "4px 10px",
+                display: "inline-block",
+                borderRadius: "8px",
               }}
             >
               Current Plan
             </Typography>
+          </Box>
+
+
+          <CardContent>
             <Typography
               variant="h4"
               sx={{
@@ -110,6 +137,7 @@ const PlansAndPricing = () => {
               </Button>
             </Box>
           </CardContent>
+
         </Card>
       </Box>
     </Box>

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Box } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { SidebarContext } from '../Sidebar/SidebarContext'; 
 
@@ -14,6 +13,8 @@ const Header = () => {
       sx={{
         backgroundColor: '#F5F6FA',
         color: '#333',
+        fontFamily: 'Roboto, sans-serif',
+        fontSize: '14px',
         zIndex: 1200,
         boxShadow: 'none',
         marginLeft: '200px',
@@ -36,9 +37,6 @@ const Header = () => {
         </Box>
 
         <Box>
-          <IconButton>
-            <NotificationsIcon />
-          </IconButton>
           <IconButton>
             <AccountCircleIcon />
           </IconButton>

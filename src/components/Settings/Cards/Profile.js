@@ -1,90 +1,105 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Box,
   Button,
   Typography,
   Avatar,
   Grid,
-  Divider,
 } from "@mui/material";
+import SettingsIcon from '@mui/icons-material/Settings';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import HomeIcon from '@mui/icons-material/Home';
+import Picture from '../../../assets/image-profilepic.png';
+
 
 const Profile = () => {
+  const accountRef = useRef(null);
+  const pricingRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <Box
       sx={{
         p: 3,
         maxWidth: "900px",
         margin: "auto",
-       
+        fontFamily: 'sans-serif',
       }}
-    >   
-    <Box
-    sx={{
-      display: "flex",
-      justifyContent: "flex-start",
-      mb: 3, 
-    }}
-  >
-       <Avatar
-              src="https://via.placeholder.com/150"
-              alt="Profile Picture"
-              sx={{
-                width: 80,
-                height: 80,
-                mr: 2,
-              }}
-            />
-      </Box>
-      {/* Header Section */}
+    >
       <Box
         sx={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 3,
         }}
       >
+        {/* Left Section: Avatar and Company Name */}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Avatar
+            src={Picture}
+            alt="Profile Picture"
+            sx={{
+              width: 80,
+              height: 80,
+              mr: 2,
+            }}
+          />
+          <Typography color="#344767" sx={{ fontFamily: 'sans-serif', fontSize: '18px', fontWeight: "bold" }}>
+            Company Name
+          </Typography>
+        </Box>
+
+        {/* Right Section: Header Buttons */}
         <Box>
-          <Button variant="contained" sx={{ mr: 1 }}>
+          <Button
+            variant="contained"
+            startIcon={<HomeIcon />}
+            sx={{ mr: 1 }}
+          >
             Profile
           </Button>
-          <Button variant="outlined" sx={{ mr: 1 }}>
+          <Button
+            variant="outlined"
+            startIcon={<AccountCircleIcon />}
+            sx={{ mr: 1 }}
+            onClick={() => scrollToSection(accountRef)}
+          >
             Account
           </Button>
-          <Button variant="outlined">Plans & Pricing</Button>
+          <Button
+            variant="outlined"
+            startIcon={<SettingsIcon />}
+            onClick={() => scrollToSection(pricingRef)}
+          >
+            Plans & Pricing
+          </Button>
         </Box>
       </Box>
-
+      
       {/* Content Section */}
       <Grid container spacing={3}>
         {/* Left Section: Company Information */}
         <Grid item xs={12} md={6}>
-          <Typography variant="h6" sx={{ mb: 1, fontWeight: "bold" }}>
+          <Typography color="#344767" sx={{ mb: 1, fontFamily: 'sans-serif', fontSize: '18px', fontWeight: "bold" }}>
             Company Information
           </Typography>
-          <Typography variant="body2" sx={{ mb: 2 }}>
-            Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer
-            is no. If two equally difficult paths, choose the one more painful
-            in the short term (pain avoidance is creating an illusion of
-            equality).
+          <Typography variant="h6" color="#7B809A" sx={{ mb: 2, fontSize: '14px', fontFamily: 'Roboto, sans-serif' }}>
+            Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer is no.
           </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Website:</strong> Alec M. Thompson
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Company LinkedIn:</strong> Alec M. Thompson
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Location:</strong> India
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Address:</strong> India
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Industry:</strong> E-commerce
-          </Typography>
+          {/* Add other company details here */}
         </Grid>
 
         {/* Right Section: Profile Information */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} ref={accountRef}>
           <Box
             sx={{
               display: "flex",
@@ -92,33 +107,31 @@ const Profile = () => {
               mb: 2,
             }}
           >
-           
-            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-              Alec M. Thompson
+            <Typography variant="bold" color="#344767" sx={{ fontFamily: 'Roboto, sans-serif', fontSize: '16px', fontWeight: 'bold' }}>
+              Profile Information
             </Typography>
           </Box>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Full Name:</strong> Alec M. Thompson
+          <Typography variant="body2" color="#344767" sx={{ mb: 1 }}>
+            <strong>Full Name:</strong>{' '}
+            <span style={{ color: '#7B809A' }}>Alec M. Thompson</span>
           </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Mobile:</strong> (44) 123 1234 123
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Email:</strong> alecmthompson@mail.com
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Designation:</strong> CTO
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>LinkedIn:</strong> USA
-          </Typography>
+          {/* Add other profile details here */}
         </Grid>
       </Grid>
 
-      <Divider sx={{ mt: 3, mb: 3 }} />
+      {/* Pricing Section */}
+      <Box ref={pricingRef} sx={{ mt: 4 }}>
+        <Typography color="#344767" sx={{ mb: 2, fontSize: '18px', fontWeight: "bold" }}>
+          Plans & Pricing
+        </Typography>
+        <Typography variant="body2" color="#7B809A" sx={{ mb: 2 }}>
+          Here are the details of our pricing plans.
+        </Typography>
+        {/* Add pricing details here */}
+      </Box>
 
       {/* Update Information Button */}
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
         <Button
           variant="contained"
           color="primary"

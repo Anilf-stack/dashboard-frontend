@@ -52,6 +52,7 @@ const PieChart = ({ title, type, imgSrc, style }) => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
+            fontFamily: 'Roboto'
           }}
         >
           <Box
@@ -73,7 +74,11 @@ const PieChart = ({ title, type, imgSrc, style }) => {
                 padding: '4px',
               }}
             />
-            <Typography variant="subtitle1" color="344767">
+            <Typography variant="h6" color="#344767" style={{
+              fontFamily: 'Roboto, sans-serif',
+              fontWeight: 'bold',
+              fontSize: '16px',
+            }}>
               {title}
             </Typography>
           </Box>

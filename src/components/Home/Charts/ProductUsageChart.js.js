@@ -27,6 +27,10 @@ const ProductUsageChart = () => {
   const options = {
     responsive: true,
     scales: {
+      x: {
+        barPercentage: 1, // Ensures bars fill their category space
+        categoryPercentage: 0.8, // Adjusts space between categories
+      },
       y: {
         min: 0,
         max: 500,

@@ -74,7 +74,8 @@ const LineChart = () => {
         alignItems: 'center',
         width: '100%',       // Adjust container width
         height: '400px',     // Adjust height for better visibility
-        margin: '0 auto',    // Centers the chart horizontally
+        margin: '0 auto',
+        fontFamily: 'Roboto'     
       }}
     >
       <Line data={data} options={options} />

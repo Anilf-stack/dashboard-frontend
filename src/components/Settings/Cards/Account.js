@@ -6,7 +6,7 @@ import {
   Typography,
   IconButton,
   InputAdornment,
-  Divider,
+ 
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
@@ -25,19 +25,21 @@ const Account = () => {
   return (
     <Box
       sx={{
-        p: 4,
-        maxWidth: "600px",
+        p: 3,
+        maxWidth: "900px",
         margin: "auto",
+        fontFamily: 'Roboto',
+        color:"#344767"
       
       }}
     >
       {/* Title */}
-      <Typography variant="h6" sx={{ mb: 3, fontWeight: "bold" }}>
+      <Typography  color="344767" sx={{ mb: 3, fontFamily: ' sans-serif',fontSize: '18px',fontWeight: "bold" }}>
         Account Settings
       </Typography>
 
       {/* Change Password Section */}
-      <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: "bold" }}>
+      <Typography variant="subtitle1" sx={{ mb: 2, fontFamily: ' sans-serif',fontSize: '16px',fontWeight: "bold" }}>
         Change Password
       </Typography>
 
@@ -125,10 +127,8 @@ const Account = () => {
         <li>Change it often</li>
       </ul>
 
-      <Divider sx={{ mb: 3 }} />
-
       {/* Update Password Button */}
-      <Box sx={{ textAlign: "center" }}>
+      <Box sx={{ textAlign: "right" }}>
         <Button
           variant="contained"
           color="primary"

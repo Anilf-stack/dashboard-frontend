@@ -94,7 +94,7 @@ const Simplemap = () => {
           <Card sx={{ borderRadius: '8px' }}>
             <CardContent>
               <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Typography variant="subtitle1" color="344767" >Bot vs Without Bot Orders</Typography>
+                <Typography variant="h6" color="#344767" sx={{ fontFamily: 'Roboto, sans-serif',fontWeight: 'bold',fontSize: '16px' }} >Bot vs Without Bot Orders</Typography>
                 <Select defaultValue="Daily" size="small">
                   <MenuItem value="Daily">Daily</MenuItem>
                   <MenuItem value="Monthly">Monthly</MenuItem>
@@ -138,7 +138,7 @@ const Simplemap = () => {
                     backgroundColor: '#4BA64F',
                   }}
                 />
-                <Typography variant="subtitle1" color="344767" gutterBottom>
+                <Typography variant="h6" color="#344767" gutterBottom sx={{ fontFamily: 'Roboto, sans-serif',fontWeight: 'bold',fontSize: '16px' }}>
                   Geographical
                 </Typography>
               </Box>

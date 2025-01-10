@@ -25,15 +25,16 @@ const Dashboard = () => {
   return (
     <Box
       sx={{
-        padding: '20px 42px', // Adds space on left and right
+        padding: '20px 42px',
         margin: 0,
         marginTop: '64px',
-        marginLeft: '191px', // Sidebar width adjustment
+        marginLeft: '191px',
         backgroundColor: '#F5F6FA',
         minHeight: '100vh',
         boxSizing: 'border-box',
-        overflow: 'hidden', // Completely removes scrollbars
-        width: 'calc(101vw - 229px)', // Adjust for sidebar and padding
+        overflow: 'hidden',
+        width: 'calc(101vw - 229px)',
+        fontFamily: 'Roboto',
       }}
     >
       <Grid container spacing={3}>
@@ -51,52 +52,43 @@ const Dashboard = () => {
                 borderRadius: '8px',
                 boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
                 padding: '12px',
-                maxWidth: '220px',
-                boxSizing: 'border-box',
-                minHeight: '120px',
+                minHeight: '100px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
               }}
             >
               <CardContent sx={{ padding: '8px !important' }}>
-                {/* Title */}
                 <Typography variant="subtitle2" color="text.secondary">
                   {item.title}
                 </Typography>
-
-                {/* Value */}
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    marginTop: '4px',
-                    marginBottom: '8px',
-                    position: 'relative',
-                  }}
-                >
+                <Box sx={{ marginTop: '4px', marginBottom: '8px' }}>
                   <Typography variant="h5" fontWeight="bold">
                     {item.value}
                   </Typography>
-
-                  {/* Border line */}
+                  {/* Full-width border line */}
                   <Box
                     sx={{
-                      width: 'calc(100% + 24px)',
+                      width: 'calc(110% + 22px)', // Account for the card's padding
+                      marginLeft: '-20px', // Offset to align with card edges
+                      marginTop: '4px',
                       height: '1px',
                       backgroundColor: '#d3d3d3',
-                      marginTop: '4px',
-                      marginLeft: '-12px',
                     }}
                   />
                 </Box>
-
-                {/* Change */}
                 <Typography variant="caption" fontWeight="bold" sx={{ fontSize: '16px' }}>
                   <Box component="span" sx={{ color: item.change.startsWith('+') ? 'green' : 'red' }}>
                     {item.change}
                   </Box>
-                  <Box component="span" sx={{ color: 'text.secondary', fontWeight: 'normal', fontSize: '12px' }}>
+                  <Box
+                    component="span"
+                    sx={{
+                      color: 'text.secondary',
+                      fontWeight: 'normal',
+                      fontSize: '12px',
+                    }}
+                  >
                     {' '}
                     than last week
                   </Box>
@@ -110,11 +102,11 @@ const Dashboard = () => {
         <Grid item xs={12} md={6}>
           <Card
             sx={{
-              backgroundColor: "#fff",
-              borderRadius: "8px",
-              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-              padding: "14px",
-              maxWidth: "500px", // Reduced width
+              backgroundColor: '#fff',
+              borderRadius: '8px',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+              padding: '14px',
+              minHeight: '350px', // Match height to other cards
             }}
           >
             <CardContent>
@@ -124,12 +116,15 @@ const Dashboard = () => {
                     src={Bar}
                     alt="Product Icon"
                     style={{
-                      width: "34px", height: "34px", objectFit: "contain", borderRadius: "4px",
-                      display: "block",
-                      backgroundColor: "#E23571"
+                      width: '34px',
+                      height: '34px',
+                      objectFit: 'contain',
+                      borderRadius: '4px',
+                      display: 'block',
+                      backgroundColor: '#E23571',
                     }}
                   />
-                  <Typography variant="subtitle1" color="344767">
+                  <Typography color="#344767" sx={{ fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '16px' }}>
                     Product Usage
                   </Typography>
                 </Box>
@@ -148,11 +143,11 @@ const Dashboard = () => {
         <Grid item xs={12} md={6}>
           <Card
             sx={{
-              backgroundColor: "#fff",
-              borderRadius: "8px",
-              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-              padding: "14px",
-              maxWidth: "500px", // Reduced width
+              backgroundColor: '#fff',
+              borderRadius: '8px',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+              padding: '14px',
+              minHeight: '350px', // Match height to other cards
             }}
           >
             <CardContent>
@@ -162,12 +157,16 @@ const Dashboard = () => {
                     src={Profit}
                     alt="Profit Icon"
                     style={{
-                      width: "16px", height: "16px", objectFit: "contain", padding: "8px", borderRadius: "4px",
-                      display: "block",
-                      backgroundColor: "#000000",
+                      width: '16px',
+                      height: '16px',
+                      objectFit: 'contain',
+                      padding: '8px',
+                      borderRadius: '4px',
+                      display: 'block',
+                      backgroundColor: '#000000',
                     }}
                   />
-                  <Typography variant="subtitle1" color="344767">
+                  <Typography color="#344767" sx={{ fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '16px' }}>
                     Profits
                   </Typography>
                 </Box>
@@ -226,13 +225,12 @@ const Dashboard = () => {
                       backgroundColor: '#1E78E9',
                     }}
                   />
-                  <Typography variant="subtitle1" color="344767" >
-                    User Usage Chart
+                  <Typography color="#344767" sx={{ fontFamily: ' sans-serif', fontWeight: 'bold', fontSize: '16px' }} >
+                    User Usage
                     <Box
                       component="span"
                       sx={{
                         color: 'text.secondary',
-                        fontWeight: 'normal',
                         fontSize: '14px',
                         display: 'block', // Ensures it appears on a new line
                       }}
@@ -297,10 +295,11 @@ const Dashboard = () => {
             type="bargaining"
             imgSrc={PieIcon}
             style={{
-              backgroundColor: '#318AEB',
-              width: '40px',
-              height: '40px',
+              backgroundColor: '#2D89E6',
+              width: '30px',
+              height: '30px',
             }}
+
           />
         </Grid>
 
@@ -314,8 +313,9 @@ const Dashboard = () => {
               width: '30px',
               height: '30px',
             }}
+
           />
-        </Grid>;
+        </Grid>
 
         {/* World Map Insights */}
         <Grid item xs={12} >

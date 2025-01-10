@@ -16,7 +16,7 @@ const ProductCategories = () => {
 
   return (
     <Box>
-      <Typography variant="subtitle1" color="#344767" sx={{ marginBottom: '10px' }}>
+      <Typography variant="h6" color="#344767" sx={{fontFamily: ' sans-serif',fontWeight: 'bold',fontSize: '18px', marginBottom: '10px' }}>
         Product Category
       </Typography>
       <Grid container spacing={2}>

@@ -1,13 +1,13 @@
 import React from "react";
 import { Box, Card, CardContent, Typography, Button, } from "@mui/material";
 import Profile from "../Settings/Cards/Profile";
-import Account from "../Settings/Cards/Account"; 
+import Account from "../Settings/Cards/Account";
 import PricingAndPlans from "./Cards/PricingAndPlans"; // Import your Pricing component
 
 const Settings = () => {
   return (
     <Box
-    sx={{
+      sx={{
         padding: '20px 42px', // Adds space on left and right
         margin: 0,
         marginTop: '64px',
@@ -30,9 +30,6 @@ const Settings = () => {
       {/* Account Settings Card */}
       <Card sx={{ mb: 4, boxShadow: 3, borderRadius: 3 }}>
         <CardContent>
-          <Typography variant="h6" sx={{ mb: 3, fontWeight: "bold" }}>
-            Account Settings
-          </Typography>
           <Account />
         </CardContent>
       </Card>
@@ -40,47 +37,53 @@ const Settings = () => {
       {/* Plans and Pricing Card */}
       <Card sx={{ mb: 4, boxShadow: 3, borderRadius: 3 }}>
         <CardContent>
-          <Typography variant="h6" sx={{ mb: 3, fontWeight: "bold" }}>
-            Plans & Pricing
-          </Typography>
           <PricingAndPlans />
         </CardContent>
       </Card>
-      <Card >
         {/* Delete Subscription Section */}
-      <Box>
-        <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: "bold" }}>
-          Delete Subscription
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 3, color: "#6c757d" }}>
-          Once you delete your account, there is no going back. Please be
-          certain.
-        </Typography>
-        <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 2 }}>
-          <Button
-            variant="outlined"
-            color="warning"
-            sx={{
-              textTransform: "none",
-              borderRadius: "20px",
-              px: 3,
-            }}
-          >
-            Deactivate
-          </Button>
-          <Button
-            variant="contained"
-            color="error"
-            sx={{
-              textTransform: "none",
-              borderRadius: "20px",
-              px: 3,
-            }}
-          >
-            Delete Account
-          </Button>
+      <Card sx={{ mb: 4, boxShadow: 3, borderRadius: 3 }} >
+      <Box
+          sx={{
+            width: "100%",
+            maxWidth: "900px", // Set a maximum width for the content
+            margin: "auto", // Center the content within the card
+            p: 3,
+            fontFamily: 'sans-serif'
+        
+          }}
+        >
+          <Typography  color="#344767" sx={{ mb: 2, fontFamily: ' sans-serif',fontSize: '16px',fontWeight: "bold" }}>
+            Delete Subscription
+          </Typography>
+          <Typography variant="body2" sx={{ mb: 3, color: "#6c757d" }}>
+            Once you delete your account, there is no going back. Please be
+            certain.
+          </Typography>
+          <Box sx={{  mx: 4, display: "flex", justifyContent: "flex-end", gap: 2 }}>
+            <Button
+              variant="outlined"
+              color="warning"
+              sx={{
+                textTransform: "none",
+                borderRadius: "20px",
+                px: 3,
+              }}
+            >
+              Deactivate
+            </Button>
+            <Button
+              variant="contained"
+              color="error"
+              sx={{
+                textTransform: "none",
+                borderRadius: "20px",
+                px: 3,
+              }}
+            >
+              Delete Account
+            </Button>
+          </Box>
         </Box>
-      </Box>
       </Card>
     </Box>
   );

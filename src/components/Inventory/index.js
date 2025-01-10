@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid, Card, CardContent, Typography } from '@mui/material';
 import ProductCategories from '../Inventory/Cards/ProductCategories';
 import BargainingPriceRange from '../Inventory/Cards/BargainingPriceRange';
+import CategorySettings from '../Inventory/Cards/CategorySettings';
 import PullOutReason from '../Inventory/Cards/PullOutReason';
 import InventoryTable from '../Inventory/Cards/InventoryTable';
 
@@ -18,10 +19,11 @@ const Inventory = () => {
         boxSizing: 'border-box',
         overflow: 'hidden', // Completely removes scrollbars
         width: 'calc(101vw - 229px)', // Adjust for sidebar and padding
+        fontFamily: 'sans-serif' 
       }}
     >
       {/* Metric Cards */}
-      <Grid container spacing={2} sx={{ marginBottom: '20px' }}>
+      <Grid container spacing={2} sx={{  fontFamily: ' sans-serif',fontWeight: 'bold',fontSize: '20px', marginBottom: '20px' }}>
         {['Total Available Products', 'Next Active Products', 'Next In-active Products', 'Total Available Products'].map(
           (metric, index) => (
             <Grid item xs={12} sm={6} md={3} key={index}>
@@ -96,14 +98,21 @@ const Inventory = () => {
             </CardContent>
           </Card>
         </Grid>
-
+        {/*Setting Category */}
+        <Grid item xs={12}>
+          <Card>
+            <CardContent>
+              <CategorySettings/>
+            </CardContent>
+          </Card>
+        </Grid>
         {/* Pull Out NeyX Section */}
         <Grid item xs={12}>
           <PullOutReason />
         </Grid>
 
         {/* Inventory table section */}
-        <Grid item xs={12} sx={{ marginTop: '40px' }}>
+        <Grid item xs={12} >
           <InventoryTable />
         </Grid>
 

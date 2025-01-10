@@ -13,7 +13,7 @@ const PullOutReason = () => {
   const [category, setCategory] = useState('');
 
   return (
-    <Box mt={3}>
+    <Box mt={1}>
       <Card
         sx={{
           width: '96%',
@@ -23,8 +23,8 @@ const PullOutReason = () => {
         }}
       >
         <Typography
-          variant="h6"
-          sx={{ marginBottom: '20px', fontWeight: 'bold' }}
+         color="#344767"
+          sx={{ fontFamily: ' sans-serif', fontSize: '18px', marginBottom: '20px', fontWeight: 'bold' }}
         >
           Pull out NeyX
         </Typography>
@@ -64,8 +64,9 @@ const PullOutReason = () => {
                     '&:hover': {
                       backgroundColor: '#333',
                     },
-                    height: '130%',
-                    width: '90px',
+                    height: '100%', // Automatically adjust to match the TextField
+                    width: '120px',
+                    padding: '16px',
                   }}
                 >
                   Apply
@@ -74,10 +75,11 @@ const PullOutReason = () => {
             </Box>
           </Grid>
 
+
           {/* For Selected Categories */}
           <Grid item xs={12} md={6}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-              <Typography variant="body2">For Selected Categories</Typography>
+              <Typography variant="body2" color="#344767">For Selected Categories</Typography>
               <Box
                 sx={{
                   display: 'flex',
@@ -110,7 +112,8 @@ const PullOutReason = () => {
                       backgroundColor: '#333',
                     },
                     height: '130%',
-                    width: '90px',
+                    width: '120px',
+                    padding: '16px',
                   }}
                 >
                   Apply

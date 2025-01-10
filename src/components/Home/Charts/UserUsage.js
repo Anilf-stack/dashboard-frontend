@@ -1,9 +1,9 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Legend } from 'chart.js';
 
 // Register necessary chart.js components
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Legend);
 
 const UserUsageChart = () => {
   const data = {
@@ -22,18 +22,18 @@ const UserUsageChart = () => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false, // Stretch chart to fit its container
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+    },
     scales: {
       x: {
         ticks: { color: '#A0AEC0' },
       },
       y: {
         ticks: { color: '#A0AEC0' },
-      },
-    },
-    plugins: {
-      legend: {
-        display: false, // Hide legend
       },
     },
   };

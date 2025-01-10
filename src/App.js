@@ -7,25 +7,36 @@ import Inventory from './components/Inventory';
 import { SidebarProvider } from './components/Sidebar/SidebarContext';
 import Order from './components/Order';
 import Settings from './components/Settings';
+import Plans from './components/Plans';
+import SignIn from './components/SignIn'
 
 function App() {
   return (
     <SidebarProvider>
       <Router>
-        <div>
-          <Header />
-          <Sidebar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/inventory" element={<Inventory />} />
-            <Route path="/order" element={<Order />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/login" element={<SignIn />} />
+          <Route
+            path="*"
+            element={
+              <>
+                <Header />
+                <Sidebar />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/inventory" element={<Inventory />} />
+                  <Route path="/order" element={<Order />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/plans" element={<Plans />} />
+                </Routes>
+              </>
+            }
+          />
+        </Routes>
       </Router>
     </SidebarProvider>
   );
-}
+};
 
 export default App;
 
