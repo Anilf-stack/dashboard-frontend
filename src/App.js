@@ -8,12 +8,14 @@ import { SidebarProvider } from './components/Sidebar/SidebarContext';
 import Order from './components/Order';
 import Settings from './components/Settings';
 import Plans from './components/Plans';
-import SignIn from './components/SignIn'
+import SignIn from './components/SignIn';
+import ScrollToTop from './components/ScrollToTop'; // Import the ScrollToTop component
 
 function App() {
   return (
     <SidebarProvider>
       <Router>
+        <ScrollToTop /> {/* Add the ScrollToTop component */}
         <Routes>
           <Route path="/login" element={<SignIn />} />
           <Route
@@ -36,11 +38,9 @@ function App() {
       </Router>
     </SidebarProvider>
   );
-};
+}
 
 export default App;
-
-
 
 
 
